@@ -1,0 +1,14 @@
+https://openweathermap.org/weather-conditions
+
+https://freecontent.manning.com/in-depth-styling-with-react-native-and-flexbox/
+
+feelsLike: degree C
+Humidity: %
+Wind speed: m/s
+Pressur: hPa
+
+
+TODO:
+- Nuemorphic UI
+- Start making Component
+- units(Metric/Imperial) toggler/switch
