@@ -4,6 +4,16 @@ Links:
 https://ui8.net/piqodesign?search=1
 https://www.videezy.com/
 
+UI reference:
+https://dribbble.com/shots/6492343-Weather-App
+https://dribbble.com/shots/15208692-Weather-App
+https://dribbble.com/shots/15384261-Weather-App-Design
+https://dribbble.com/shots/14958600-Weather-App
+https://dribbble.com/shots/14830221-Weather-App
+
+bg color
+https://dribbble.com/shots/15138732-Weather-app
+
 Info:
 feelsLike: degree C
 Humidity: %
