@@ -4,7 +4,7 @@
  * @returns calculated date object
  */
 const unixTimestampToDate = (unixTimestamp: number): Date => {
-    return new Date(unixTimestamp * 1000);
+	return new Date(unixTimestamp * 1000);
 };
 
 /**
@@ -13,14 +13,14 @@ const unixTimestampToDate = (unixTimestamp: number): Date => {
  * @returns direction in string
  */
 const degreeTodirection = (windDegree: number): string => {
-    const compassPoints = ["North", "North North East", "North East", "East North East",
-        "East", "East South East", "South East", "South South East",
-        "South", "South South West", "South West", "West South West",
-        "West", "West North West", "North West", "North North West"];
-    const rawPosition = Math.floor((windDegree / 22.5) + 0.5);
-    const arrayPosition = (rawPosition % 16);
+	const compassPoints = ["North", "North North East", "North East", "East North East",
+		"East", "East South East", "South East", "South South East",
+		"South", "South South West", "South West", "West South West",
+		"West", "West North West", "North West", "North North West"];
+	const rawPosition = Math.floor((windDegree / 22.5) + 0.5);
+	const arrayPosition = (rawPosition % 16);
 
-    return compassPoints[arrayPosition];
+	return compassPoints[arrayPosition];
 };
 
 /**
@@ -29,5 +29,5 @@ const degreeTodirection = (windDegree: number): string => {
  * @returns kilometer/hour
  */
 const mpsTokmph = (mps: number): number => {
-    return mps * 3.6;
+	return mps * 3.6;
 };

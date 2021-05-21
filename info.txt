@@ -3,6 +3,8 @@ https://openweathermap.org/weather-conditions
 Links:
 https://ui8.net/piqodesign?search=1
 https://www.videezy.com/
+https://products.ls.graphics/mesh-gradients/
+https://dribbble.com/shots/3889329-Free-Gradients
 
 UI reference:
 https://dribbble.com/shots/6492343-Weather-App
@@ -17,12 +19,20 @@ bg color
 https://dribbble.com/shots/15138732-Weather-app
 
 Info:
+temp
 feelsLike: degree C
+
 Humidity: %
 Wind speed: m/s
 Pressur: hPa
+sunrise time
+sunset time
+wind direction
 
 https://freecontent.manning.com/in-depth-styling-with-react-native-and-flexbox/
+
+https://stackoverflow.com/questions/46971206/how-to-add-shadow-around-the-image-in-react-native/46984602
+https://blog.logrocket.com/understanding-react-native-linear-gradient/
 
 TODO:
 - Nuemorphic UI (maybe)
