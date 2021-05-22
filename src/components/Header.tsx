@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, TextStyle, View, ViewStyle } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { IHeaderStyle } from '../shared/styleInterfaces';
 
 function Header() {
 	return (
@@ -11,14 +12,7 @@ function Header() {
 	)
 }
 
-// Todo: make a separate styles interface file and import
-interface IStyle {
-	container: ViewStyle;
-	title: TextStyle;
-	reload: ViewStyle;
-};
-
-const styles = StyleSheet.create<IStyle>({
+const styles = StyleSheet.create<IHeaderStyle>({
 	container: {
 		display: 'flex',
 		flexDirection: 'row',
