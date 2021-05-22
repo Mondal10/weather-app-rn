@@ -6,7 +6,7 @@ function Header() {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.title}>Weather App</Text>
-			<MaterialCommunityIcons name="reload" size={24} color="black" />
+			<MaterialCommunityIcons name="reload" size={24} color="black" onPress={() => console.log('Reload')} />
 		</View>
 	)
 }
@@ -25,6 +25,7 @@ const styles = StyleSheet.create<IStyle>({
 		justifyContent: 'space-between',
 		alignItems: 'center',
 		padding: 20,
+		marginTop: 10,
 		marginBottom: 10,
 	},
 	title: {
