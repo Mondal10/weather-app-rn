@@ -3,10 +3,16 @@ import { StyleSheet, Text, View } from 'react-native';
 
 function SearchBar() {
 	return (
-		<View>
-			<Text>
+		<View style={{
+			paddingVertical: 5,
+			paddingHorizontal: 10,
+		}}>
+			<Text style={{
+				fontSize: 20, borderColor: 'blue',
+				borderWidth: 1,
+			}}>
 				Search Bar
-            </Text>
+      </Text>
 		</View>
 	)
 }

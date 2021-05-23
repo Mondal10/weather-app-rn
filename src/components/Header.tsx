@@ -7,7 +7,7 @@ function Header() {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.title}>Weather App</Text>
-			<MaterialCommunityIcons name="reload" size={24} color="black" onPress={() => console.log('Reload')} />
+			<MaterialCommunityIcons name="reload" size={24} color="#424242" onPress={() => console.log('Reload')} />
 		</View>
 	)
 }
@@ -25,10 +25,8 @@ const styles = StyleSheet.create<IHeaderStyle>({
 	title: {
 		fontSize: 24,
 		fontWeight: 'bold',
+		color: '#424242',
 	},
-	reload: {
-
-	}
 });
 
 export default Header;

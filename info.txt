@@ -21,20 +21,22 @@ https://dribbble.com/shots/15138732-Weather-app
 Info:
 temp
 feelsLike: degree C
+visibility: meter, convert to km
 
-Humidity: %
 Wind speed: m/s
-Pressur: hPa
+wind direction
+Pressur: mBar
+Humidity: %
 sunrise time
 sunset time
-wind direction
 
 https://freecontent.manning.com/in-depth-styling-with-react-native-and-flexbox/
 
 https://stackoverflow.com/questions/46971206/how-to-add-shadow-around-the-image-in-react-native/46984602
 https://blog.logrocket.com/understanding-react-native-linear-gradient/
 
+dark-mode:
+https://freecontent.manning.com/applying-and-organizing-styles-in-react-native/#:~:text=You%20can%20apply%20styles%20to,a%20StyleSheet%20(listing%202).&text=%E2%9D%B6%20An%20inline%20style%20applied%20to%20a%20React%20Native%20component.
+
 TODO:
-- Nuemorphic UI (maybe)
-- Start making Component
-- units(Metric/Imperial) toggler/switch
+- Use colors from constants file
