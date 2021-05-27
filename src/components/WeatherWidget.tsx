@@ -8,6 +8,7 @@ import dummy from '../../assets/images/all.png';
 import dummy2 from '../../assets/images/sun.png';
 
 import { roundedTemperature } from '../utils/helper';
+import AnimatedCountup from './AnimatedCountup';
 
 export type Props = {
 	cityName: string;
@@ -27,7 +28,7 @@ const WeatherWidget: FC<Props> = ({ cityName, temperature, description }) => {
 				source={meshGradient}
 			>
 				<Text style={styles.description}>{description}</Text>
-				<Text style={styles.temperature}>{roundedTemperature(temperature)}</Text>
+				<AnimatedCountup customStyle={styles.temperature} value={temperature} symbol={"°"} />
 			</ImageBackground>
 			<Image style={styles.weatherImg} source={dummy} />
 		</View>

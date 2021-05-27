@@ -57,7 +57,7 @@ const dummy = {
 function Home() {
 	const [errorMsg, setErrorMsg] = useState<null | string>(null);
 	const [weatherData, setWeatherData] = useState<null | any>(null);
-	// const [unit, setUnit] = useState<Units>(Units.METRIC);
+	const unit: Units = Units.METRIC;
 
 	useEffect(() => {
 		load();
