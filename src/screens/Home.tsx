@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import { requestForegroundPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 
 import { PermissionStatus, Units } from '../shared/enums';
@@ -116,8 +116,12 @@ function Home() {
 						</View>
 					</> :
 					<>
-						{/* Error Screen */}
-						<Text>{errorMsg}</Text>
+						<View style={{flex: 0.8,justifyContent: 'center', alignItems: 'center'}}>
+							{/* Error Screen */}
+							{
+								(errorMsg) ? <Text>{errorMsg}</Text> : <ActivityIndicator size="large" color="#4f3cc9" />
+							}
+						</View>
 					</>
 			}
 		</View>
