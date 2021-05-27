@@ -101,6 +101,7 @@ function Home() {
 							<SearchBar />
 							<WeatherWidget
 								cityName={weatherData.name}
+								icon={weatherData.weather[0].icon}
 								temperature={weatherData.main.temp}
 								description={weatherData.weather[0].description}
 							/>

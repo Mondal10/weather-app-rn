@@ -1,22 +1,20 @@
 import React, { FC } from 'react';
-import { StyleSheet, Text, View, ImageBackground, Image, Platform } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, Image } from 'react-native';
 import { IWeatherWidgetStyle } from '../shared/styleInterfaces';
 
+import { WEATHER_ICONS } from '../shared/constants';
 import meshGradient from '../../assets/images/mesh-gradient.jpg';
-// Todo: make dynamic images as per weather
-import dummy from '../../assets/images/all.png';
-import dummy2 from '../../assets/images/sun.png';
 
-import { roundedTemperature } from '../utils/helper';
 import AnimatedCountup from './AnimatedCountup';
 
 export type Props = {
 	cityName: string;
+	icon: string;
 	temperature: number;
 	description: string;
 }
 
-const WeatherWidget: FC<Props> = ({ cityName, temperature, description }) => {
+const WeatherWidget: FC<Props> = ({ cityName, icon, temperature, description }) => {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.cityName}>
@@ -30,7 +28,7 @@ const WeatherWidget: FC<Props> = ({ cityName, temperature, description }) => {
 				<Text style={styles.description}>{description}</Text>
 				<AnimatedCountup customStyle={styles.temperature} value={temperature} symbol={"°"} />
 			</ImageBackground>
-			<Image style={styles.weatherImg} source={dummy} />
+			<Image style={styles.weatherImg} source={WEATHER_ICONS[icon as keyof typeof WEATHER_ICONS]} />
 		</View>
 	)
 }
