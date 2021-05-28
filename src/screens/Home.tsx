@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
+import {
+	StyleSheet,
+	Text,
+	View,
+	ActivityIndicator,
+	TouchableWithoutFeedback,
+	Keyboard,
+} from 'react-native';
 import { requestForegroundPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 
 import { PermissionStatus, Units } from '../shared/enums';
 import { IHomeStyle } from '../shared/styleInterfaces';
-import { getWeatherByLatLong, getWeatherByCityName } from '../api/fetchUrls';
+import { getWeatherByLatLong } from '../api/fetchUrls';
 import Header from '../components/Header';
 import WeatherWidget from '../components/WeatherWidget';
 import WeatherInfo from '../components/WeatherInfo';
@@ -91,40 +98,42 @@ function Home() {
 	}
 
 	return (
-		<View style={styles.home}>
-			<Header />
-			{
-				(weatherData) ?
-					<>
-						{/* Weather Screen */}
-						<View style={styles.WeatherWidget}>
-							<SearchBar />
-							<WeatherWidget
-								cityName={weatherData.name}
-								icon={weatherData.weather[0].icon}
-								temperature={weatherData.main.temp}
-								description={weatherData.weather[0].description}
-							/>
-							<WeatherInfo
-								pressure={weatherData.main.pressure}
-								windSpeed={weatherData.wind.speed}
-								windDegree={weatherData.wind.deg}
-								sunrise={weatherData.sys.sunrise}
-								sunset={weatherData.sys.sunset}
-								humidity={weatherData.main.humidity}
-							/>
-						</View>
-					</> :
-					<>
-						<View style={{flex: 0.8,justifyContent: 'center', alignItems: 'center'}}>
-							{/* Error Screen */}
-							{
-								(errorMsg) ? <Text>{errorMsg}</Text> : <ActivityIndicator size="large" color="#4f3cc9" />
-							}
-						</View>
-					</>
-			}
-		</View>
+		<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+			<View style={styles.home}>
+				<Header />
+				{
+					(weatherData) ?
+						<>
+							{/* Weather Screen */}
+							<View style={styles.WeatherWidget}>
+								<SearchBar setWeatherData={setWeatherData}/>
+								<WeatherWidget
+									cityName={weatherData.name}
+									icon={weatherData.weather[0].icon}
+									temperature={weatherData.main.temp}
+									description={weatherData.weather[0].description}
+								/>
+								<WeatherInfo
+									pressure={weatherData.main.pressure}
+									windSpeed={weatherData.wind.speed}
+									windDegree={weatherData.wind.deg}
+									sunrise={weatherData.sys.sunrise}
+									sunset={weatherData.sys.sunset}
+									humidity={weatherData.main.humidity}
+								/>
+							</View>
+						</> :
+						<>
+							<View style={{ flex: 0.8, justifyContent: 'center', alignItems: 'center' }}>
+								{/* Error Screen */}
+								{
+									(errorMsg) ? <Text>{errorMsg}</Text> : <ActivityIndicator size="large" color="#4f3cc9" />
+								}
+							</View>
+						</>
+				}
+			</View>
+		</TouchableWithoutFeedback>
 	);
 }
 
