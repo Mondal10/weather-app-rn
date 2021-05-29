@@ -12,7 +12,9 @@ export interface IHomeStyle {
 
 export interface IWeatherWidgetStyle {
   container: ViewStyle;
-  cityName: TextStyle;
+  nameTimeContainer: ViewStyle;
+  cityName: TextStyle,
+  time: TextStyle,
   gradientBG: ImageStyle;
   gradientDimension: ImageStyle;
   description: TextStyle;

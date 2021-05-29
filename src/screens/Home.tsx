@@ -17,50 +17,6 @@ import WeatherWidget from '../components/WeatherWidget';
 import WeatherInfo from '../components/WeatherInfo';
 import SearchBar from '../components/SearchBar';
 
-const dummy = {
-  "coord": {
-    "lon": 72.8479,
-    "lat": 19.0144
-  },
-  "weather": [
-    {
-      "id": 802,
-      "main": "Clouds",
-      "description": "scattered clouds",
-      "icon": "03d"
-    }
-  ],
-  "base": "stations",
-  "main": {
-    "temp": 32.99,
-    "feels_like": 40.22,
-    "temp_min": 31.94,
-    "temp_max": 32.99,
-    "pressure": 1006,
-    "humidity": 62
-  },
-  "visibility": 5000,
-  "wind": {
-    "speed": 5.66,
-    "deg": 310
-  },
-  "clouds": {
-    "all": 40
-  },
-  "dt": 1621765297,
-  "sys": {
-    "type": 1,
-    "id": 9052,
-    "country": "IN",
-    "sunrise": 1621729919,
-    "sunset": 1621777142
-  },
-  "timezone": 19800,
-  "id": 1275339,
-  "name": "Mumbai",
-  "cod": 200
-};
-
 function Home() {
 	const [errorMsg, setErrorMsg] = useState<null | string>(null);
 	const [weatherData, setWeatherData] = useState<null | any>(null);
@@ -86,15 +42,12 @@ function Home() {
 
 			const location = await getCurrentPositionAsync({});
 			const { latitude, longitude } = location.coords;
-			// const response = await getWeatherByLatLong(latitude, longitude, unit);
+			const response = await getWeatherByLatLong(latitude, longitude, unit);
 
-			// if (response.cod === 200) {
-			//     setWeatherData(response);
-			// } else {
-			//     setErrorMsg(response.message);
-			// }
-			if (dummy.cod === 200) {
-				setWeatherData(dummy);
+			if (response.cod === 200) {
+			    setWeatherData(response);
+			} else {
+			    setErrorMsg(response.message);
 			}
 		} catch (error) {
 			setErrorMsg(error.message);
@@ -117,6 +70,8 @@ function Home() {
 									icon={weatherData.weather[0].icon}
 									temperature={weatherData.main.temp}
 									description={weatherData.weather[0].description}
+									timezone={weatherData.timezone}
+									currentDate={weatherData.dt}
 								/>
 								<WeatherInfo
 									pressure={weatherData.main.pressure}

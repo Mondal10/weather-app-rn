@@ -6,20 +6,28 @@ import { WEATHER_ICONS } from '../shared/constants';
 import meshGradient from '../../assets/images/mesh-gradient.jpg';
 
 import AnimatedCountup from './AnimatedCountup';
+import { getTimefromTimeZone, getFormattedDate } from '../utils/helper';
 
 export type Props = {
 	cityName: string;
 	icon: string;
 	temperature: number;
 	description: string;
+	timezone: number;
+	currentDate: number;
 }
 
-const WeatherWidget: FC<Props> = ({ cityName, icon, temperature, description }) => {
+const WeatherWidget: FC<Props> = ({ cityName, icon, temperature, description, timezone, currentDate }) => {
 	return (
 		<View style={styles.container}>
-			<Text style={styles.cityName}>
-				{cityName}
-			</Text>
+			<View style={styles.nameTimeContainer}>
+				<Text style={styles.cityName}>
+					{cityName}
+				</Text>
+				<Text style={styles.time}>
+					{getFormattedDate(getTimefromTimeZone(currentDate, timezone))}
+				</Text>
+			</View>
 			<ImageBackground
 				imageStyle={styles.gradientBG}
 				style={styles.gradientDimension}
@@ -39,9 +47,9 @@ const styles = StyleSheet.create<IWeatherWidgetStyle>({
 		flexDirection: 'column',
 		alignItems: 'center',
 	},
-	cityName: {
+	nameTimeContainer: {
 		position: 'relative',
-		top: 15,
+		top: 25,
 		zIndex: 1,
 		backgroundColor: '#f6e9fb',
 		paddingVertical: 5,
@@ -50,6 +58,15 @@ const styles = StyleSheet.create<IWeatherWidgetStyle>({
 		fontSize: 18,
 		textAlign: 'center',
 		color: '#6e6d7a',
+	},
+	cityName: {
+		color: '#6e6d7a',
+		fontSize: 24,
+		textAlign: 'center'
+	},
+	time: {
+		color: '#6e6d7a',
+		textAlign: 'center'
 	},
 	gradientBG: {
 		resizeMode: 'cover',

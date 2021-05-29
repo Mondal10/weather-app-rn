@@ -58,15 +58,16 @@ export const roundedTemperature = (temperature: number): string => {
 /**
  * Get 12Hr formatted time from Date object
  * @param dateObj Date object
- * @returns 12Hr formated time eg: 7:00pm
+ * @returns 12Hr formated time eg: 7:00 pm
  */
 export const get12HTimefromDate = (dateObj: Date): string => {
 	let hours = dateObj.getHours();
 	const minutes = dateObj.getMinutes();
+  const ampm = hours >= 12 ? 'pm' : 'am';
 	const minutesStr = minutes < 10 ? `0${minutes}` : minutes;
 	hours = hours % 12 ? hours % 12 : 12;
 
-	return `${hours}:${minutesStr}`;
+	return `${hours}:${minutesStr} ${ampm}`;
 }
 
 /**
@@ -84,4 +85,14 @@ export const getTimefromTimeZone = (unixTimestamp: number, timezoneOffset: numbe
 	const cityTime = utc + (1000 * timezoneOffset); // Obtain destination city's offset in hours and convert to milliseconds
 
 	return new Date(cityTime);
+}
+
+/**
+ * Get formatted date string from date object
+ * @param dateObj Date Object
+ * @returns formatted date string eg: May 30
+ */
+export const getFormattedDate = (dateObj: Date): string => {
+	const [day, month, date, year] = dateObj.toDateString().split(' ');
+	return `${day}, ${month} ${date} ${year}`;
 }

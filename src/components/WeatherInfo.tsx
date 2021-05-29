@@ -62,12 +62,12 @@ const WeatherInfo: FC<Props> = ({
 				</View>
 				<View style={styles.info}>
 					<MaterialCommunityIcons name="weather-sunset-up" size={24} color={PURPLE} />
-					<Text style={styles.infoValue}>{get12HTimefromDate(getTimefromTimeZone(sunrise, timezone))} am</Text>
+					<Text style={styles.infoValue}>{get12HTimefromDate(getTimefromTimeZone(sunrise, timezone))}</Text>
 					<Text style={styles.infoTitle}>Sunrise</Text>
 				</View>
 				<View style={styles.info}>
 					<MaterialCommunityIcons name="weather-sunset-down" size={24} color={PURPLE} />
-					<Text style={styles.infoValue}>{get12HTimefromDate(getTimefromTimeZone(sunset, timezone))} pm</Text>
+					<Text style={styles.infoValue}>{get12HTimefromDate(getTimefromTimeZone(sunset, timezone))}</Text>
 					<Text style={styles.infoTitle}>Sunset</Text>
 				</View>
 			</View>
