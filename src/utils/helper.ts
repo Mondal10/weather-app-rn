@@ -68,3 +68,20 @@ export const get12HTimefromDate = (dateObj: Date): string => {
 
 	return `${hours}:${minutesStr}`;
 }
+
+/**
+ * Obtain the correct time, from the specific city that the data is being fetched from.
+ * Open Weather displays the timezone in seconds.
+ * @param unixTimestamp unix timestamp
+ * @param timezoneOffset offset based on location/zone (Shift in seconds from UTC)
+ * @returns 
+ */
+export const getTimefromTimeZone = (unixTimestamp: number, timezoneOffset: number): Date => {
+	const date = unixTimestampToDate(unixTimestamp);
+	const localTime = date.getTime();
+	const localOffset = date.getTimezoneOffset() * 6000 * 10; // Find local time offset (had to multiply by 10 for native)
+	const utc = localTime + localOffset; // Obtain current UTC time
+	const cityTime = utc + (1000 * timezoneOffset); // Obtain destination city's offset in hours and convert to milliseconds
+
+	return new Date(cityTime);
+}

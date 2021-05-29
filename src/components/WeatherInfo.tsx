@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Text, View, StyleSheet, Platform } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { unixTimestampToDate, get12HTimefromDate, mpsTokmph, degreeTodirection } from '../utils/helper';
+import { getTimefromTimeZone, get12HTimefromDate, mpsTokmph, degreeTodirection } from '../utils/helper';
 import { IWeatherInfoStyle } from '../shared/styleInterfaces';
 
 const PURPLE = '#4f3cc9';
@@ -13,6 +13,7 @@ export type Props = {
 	sunrise: number;
 	sunset: number;
 	humidity: number;
+	timezone: number;
 }
 
 const WeatherInfo: FC<Props> = ({
@@ -22,6 +23,7 @@ const WeatherInfo: FC<Props> = ({
 	sunrise,
 	sunset,
 	humidity,
+	timezone,
 }) => {
 	return (
 		<View style={styles.container}>
@@ -60,12 +62,12 @@ const WeatherInfo: FC<Props> = ({
 				</View>
 				<View style={styles.info}>
 					<MaterialCommunityIcons name="weather-sunset-up" size={24} color={PURPLE} />
-					<Text style={styles.infoValue}>{get12HTimefromDate(unixTimestampToDate(sunrise))} am</Text>
+					<Text style={styles.infoValue}>{get12HTimefromDate(getTimefromTimeZone(sunrise, timezone))} am</Text>
 					<Text style={styles.infoTitle}>Sunrise</Text>
 				</View>
 				<View style={styles.info}>
 					<MaterialCommunityIcons name="weather-sunset-down" size={24} color={PURPLE} />
-					<Text style={styles.infoValue}>{get12HTimefromDate(unixTimestampToDate(sunset))} pm</Text>
+					<Text style={styles.infoValue}>{get12HTimefromDate(getTimefromTimeZone(sunset, timezone))} pm</Text>
 					<Text style={styles.infoTitle}>Sunset</Text>
 				</View>
 			</View>

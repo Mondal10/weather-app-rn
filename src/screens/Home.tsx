@@ -120,6 +120,7 @@ function Home() {
 									sunrise={weatherData.sys.sunrise}
 									sunset={weatherData.sys.sunset}
 									humidity={weatherData.main.humidity}
+									timezone={weatherData.timezone}
 								/>
 							</View>
 						</> :
