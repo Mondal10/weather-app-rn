@@ -72,6 +72,11 @@ function Home() {
 
 	async function load() {
 		try {
+			if (weatherData) {
+				setWeatherData(null);
+				setErrorMsg(null);
+			}
+
 			const { status } = await requestForegroundPermissionsAsync();
 
 			if (status !== PermissionStatus.GRANTED) {
@@ -100,7 +105,7 @@ function Home() {
 	return (
 		<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
 			<View style={styles.home}>
-				<Header />
+				<Header load={load}/>
 				{
 					(weatherData) ?
 						<>

@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { getWeatherByCityName } from '../api/fetchUrls';
 
 export type Props = {
-	setWeatherData: any; // todo: create interface
+	setWeatherData: React.Dispatch<React.SetStateAction<any>>; // todo: create interface
 }
 
 const SearchBar: FC<Props> = ({ setWeatherData }) => {
