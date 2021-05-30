@@ -1,12 +1,13 @@
 {
   "expo": {
-    "name": "weather-app",
+    "name": "Weather App",
     "slug": "weather-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "description": "A beautifu weather forecast application",
+    "icon": "./assets/images/all.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/images/all.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
