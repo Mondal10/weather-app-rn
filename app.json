@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "description": "A beautifu weather forecast application",
-    "icon": "./assets/images/all.png",
+    "icon": "./assets/images/icon.png",
     "splash": {
       "image": "./assets/images/all.png",
       "resizeMode": "contain",
@@ -22,7 +22,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#FFFFFF"
       }
     },
