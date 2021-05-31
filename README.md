@@ -1,5 +1,5 @@
 <p align="center">
-  <img  alt="Pokedex" height="128px" width="128px" src="https://raw.githubusercontent.com/Mondal10/weather-app-rn/main/assets/images/icon.png?token=AHHVJ5X7SUTB5OBPN4QYVC3AWSB4K">
+  <img  alt="WeatherAppIcon" height="128px" width="128px" src="https://raw.githubusercontent.com/Mondal10/weather-app-rn/main/assets/images/icon.png?token=AHHVJ5VSKF67UFDDSWBZZ23AWSDAW">
 </p>
 <h1 align="center"><a href="https://expo.io/@mondal10/weather-app">Weather App</a></h1>
 
